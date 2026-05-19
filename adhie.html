@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHIE MIGRATION SOLUTIONS</title>
+    <style>
+        /* --- CORE BASE & ROTATING BACKGROUND --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            transition: background-image 1.2s ease-in-out;
+            background-image: linear-gradient(rgba(8, 20, 40, 0.88), rgba(8, 20, 40, 0.88)), 
+                              url('WhatsApp Image 2026-05-19 at 09.35.08.jpeg');
+        }
+
+        /* --- PREMIUM NEON GLASS-MORPHIC LOGIN CONTAINER --- */
+        #login-screen {
+            background: rgba(10, 25, 50, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 45px 35px;
+            border-radius: 24px;
+            text-align: center;
+            width: 380px;
+            box-sizing: border-box;
+            border: 1px solid rgba(218, 192, 163, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(218, 192, 163, 0.1);
+            animation: modernEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            display: block; /* Explicit default display state */
+        }
+
+        @keyframes modernEntrance {
+            from { opacity: 0; transform: scale(0.92) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Gold Decorative Portal Key Graphic */
+        .portal-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px auto;
+            background: rgba(218, 192, 163, 0.1);
+            border: 2px solid #dac0a3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #dac0a3;
+            font-size: 24px;
+            box-shadow: 0 0 15px rgba(218, 192, 163, 0.2);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 22px;
+            width: 100%;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+            font-size: 15px;
+            outline: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .input-group input:focus {
+            border-color: #dac0a3;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 12px rgba(218, 192, 163, 0.3);
+        }
+
+        .submit-gate-btn {
+            background: linear-gradient(135deg, #dac0a3, #bfa383);
+            color: #061325;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(218, 192, 163, 0.3);
+        }
+
+        .submit-gate-btn:hover {
+            background: #ffffff;
+            color: #061325;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- IMMIGRATION CONTROL DASHBOARD INTERFACE --- */
+        #main-interface {
+            display: none; /* Kept hidden initially until forced active by override logic */
+            width: 92%;
+            max-width: 1200px;
+            padding: 40px 0;
+            box-sizing: border-box;
+        }
+
+        .rooms-container {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 25px;
+            display: table;
+            margin-top: 20px;
+        }
+
+        .room {
+            display: table-cell;
+            background: rgba(6, 19, 37, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(32, 58, 112, 0.6);
+            border-top: 5px solid #dac0a3;
+            vertical-align: top;
+            width: 50%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        h1 { 
+            color: #dac0a3; 
+            text-align: center; 
+            font-size: 40px; 
+            text-transform: uppercase; 
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.9);
+        }
+        
+        h2 { 
+            color: #dac0a3; 
+            text-transform: uppercase; 
+            border-bottom: 1px solid rgba(32, 58, 112, 0.6); 
+            padding-bottom: 12px; 
+            margin-top: 0; 
+            font-size: 22px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PRESTIGIOUS MANAGEMENT IDENTIFICATION */
+        .owner-badge {
+            background: linear-gradient(135deg, rgba(16, 42, 84, 0.6), rgba(6, 19, 37, 0.8));
+            border: 1px solid rgba(218, 192, 163, 0.5);
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .owner-title {
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #dac0a3;
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .owner-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* DYNAMIC APP PORTAL ACTION INTERFACE */
+        .action-list a {
+            display: flex;
+            align-items: center;
+            background: rgba(16, 42, 84, 0.7);
+            color: #ffffff;
+            padding: 16px;
+            margin: 14px 0;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            border-left: 4px solid #dac0a3;
+            transition: all 0.25s ease;
+        }
+
+        .action-list a:hover { 
+            background: #dac0a3; 
+            color: #061325;
+            transform: translateX(5px);
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+            object-fit: contain;
+        }
+
+        .email-display {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 14px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            text-align: center;
+            border: 1px dashed rgba(32, 58, 112, 0.8);
+            margin-top: 10px;
+            color: #dac0a3;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin: 60px 0 30px 0;
+            text-align: center;
+            color: #6b7c96;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .footer b { color: #dac0a3; }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="portal-icon">🔒</div>
+        <h2 style="color: #dac0a3; border: none; margin-bottom: 5px; font-size: 24px;">SYSTEM GATEWAY</h2>
+        <p style="color: #8fa0bc; margin-top: 0; font-size: 13px; margin-bottom: 30px;">ADHIE MIGRATION SOLUTIONS</p>
+        
+        <div class="input-group">
+            <input type="text" id="userAccessID" placeholder="Enter Username ID" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Password (Optional Bypass Mode)">
+        </div>
+        
+        <button class="submit-gate-btn" onclick="forceSystemBypass()">Access Dashboard</button>
+    </div>
+
+    <div id="main-interface">
+        
+        <h1>ADHIE MIGRATION SOLUTIONS</h1>
+        <p style="text-align: center; color: #ffffff; font-size: 18px; margin-bottom: 35px; text-shadow: 1px 1px 6px rgba(0,0,0,0.8);" id="userWelcomeString"></p>
+
+        <div class="rooms-container">
+            
+            <div class="room">
+                <h2>Agency Profile</h2>
+                
+                <div class="owner-badge">
+                    <p class="owner-title">Managing Director</p>
+                    <p class="owner-name">SUDARA FERNANDO</p>
+                </div>
+
+                <p style="line-height: 1.8; color: #e1e7f0; font-size: 15px; margin-top: 0;">
+                    Welcome to the official internal platform for <b>ADHIE MIGRATION SOLUTIONS</b>. Supervised under executive leadership by <b>Sudara Fernando</b>, our premium consultation framework simplifies complex visa streams, international verification pipelines, and embassy administrative processing.
+                    <br><br>
+                    Our core service architecture specializing in the <b>Italy Legalization Process</b> manages specialized document translation matching, certification coordination, and strategic scheduling of VFS Global and Embassy appointments to establish efficient migration operations.
+                </p>
+            </div>
+
+            <div class="room">
+                <h2>Communication Portals</h2>
+                <p style="color: #8fa0bc; margin-bottom: 20px; margin-top: 0;">Click any active connection asset to launch external processing gateways:</p>
+                
+                <div class="action-list">
+                    <a href="https://wa.me/94774542610" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" class="icon" alt="WhatsApp Icon">
+                        Launch WhatsApp Chat Channel (+94 77 454 2610)
+                    </a>
+
+                    <a href="tel:0774542610">
+                        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" class="icon" alt="Phone Icon">
+                        Dial Corporate Hotline (077 4542610)
+                    </a>
+
+                    <a href="https://www.facebook.com/profile.php?id=61579047932399" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="icon" alt="Facebook Icon">
+                        Follow Official Facebook Page
+                    </a>
+
+                    <a href="https://www.instagram.com/adhie_sl?igsh=NDh6MjBqNm5jNzMz" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" class="icon" alt="Instagram Icon">
+                        View Official Instagram Feed
+                    </a>
+
+                    <a href="mailto:adhie_sl@instagram.com?subject=Migration%20Consultancy%20Service%20Request">
+                        <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="icon" alt="Mail Icon">
+                        Open Secure Email Gateway
+                    </a>
+                </div>
+
+                <p style="font-size: 11px; margin-top: 25px; margin-bottom: 5px; font-weight: bold; color: #dac0a3; letter-spacing: 1px; text-transform: uppercase;">Corporate Mailing Target:</p>
+                <div class="email-display">adhie_sl@instagram.com</div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            &copy; 2026 <b>ADHIE MIGRATION SOLUTIONS</b>. All Rights Reserved.<br>
+            Corporate Web Architecture Engineered & Developed by <b>SUNERA MEHESARA</b>
+        </div>
+    </div>
+
+    <script>
+        // BACKGROUND WALLPAPER ROTATION ROUTINE
+        const backgroundPosters = [
+            "WhatsApp Image 2026-05-19 at 09.35.08.jpeg",
+            "WhatsApp Image 2026-05-19 at 09.35.08 (1).jpeg"
+        ];
+        let assetPointer = 0;
+
+        // Smoothly alternate background image matrices every 6000ms
+        setInterval(() => {
+            assetPointer = (assetPointer + 1) % backgroundPosters.length;
+            document.body.style.backgroundImage = `linear-gradient(rgba(8, 20, 40, 0.88), rgba(8, 20, 40, 0.88)), url('${backgroundPosters[assetPointer]}')`;
+        }, 6000);
+
+        // FAIL-SAFE SYSTEM OVERRIDE FORCE ENTRY FUNCTION
+        function forceSystemBypass() {
+            const parsedUser = document.getElementById("userAccessID").value;
+            
+            // Text evaluation field block validation
+            if (!parsedUser || parsedUser.trim() === "") {
+                alert("Access Denied: Please assign a Username ID to bypass.");
+                return;
+            }
+
+            // Force physical structural visibility flip override
+            document.getElementById("login-screen").style.display = "none";
+            document.getElementById("main-interface").style.display = "block";
+            
+            // Format layout viewing frame adjustment
+            document.body.style.justifyContent = "flex-start";
+            
+            // Update terminal text injection strings safely
+            document.getElementById("userWelcomeString").innerHTML = "Gateway Clearance: Verified. Welcome back, <b>" + parsedUser + "</b>!";
+            
+            // Force viewport context orientation alignment focus to header layout
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+</body>
+</html>
